@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="scotchApp">
 <head>
     <meta charset="UTF-8">
     <title>WoT Companion</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/wot.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="js/script.js"></script>
 </head>
-<body>
+
+<body ng-controller="mainController">
+
+<!-- HEADER AND NAVBAR -->
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">World of Tanks Companion</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div class="container">
+    <div class="row">
+        <div id="main">
+            <div ng-view>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
