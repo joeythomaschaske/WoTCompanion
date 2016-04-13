@@ -15,8 +15,8 @@ scotchApp.config(function($routeProvider) {
         })
 
         // route for the about page
-        .when('/about', {
-            templateUrl : 'about.html',
+        .when('/profile/:id', {
+            templateUrl : 'profile.html',
             controller  : 'aboutController'
         })
 
@@ -42,9 +42,13 @@ scotchApp.controller('mainController', function($scope) {
 
 });
 
-scotchApp.controller('aboutController', function($scope) {
+scotchApp.controller('aboutController', ['$scope', '$location', function($scope, $location) {
     $scope.message = 'Look! I am an about page.';
-});
+    var accountId = $location.path().split('/')[2];
+    console.log(JSON.parse(getPlayerPersonalData(accountId)));
+    $scope.personalData = JSON.parse(getPlayerPersonalData(accountId)).data[accountId].statistics.all;
+
+}]);
 
 scotchApp.controller('contactController', function($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
