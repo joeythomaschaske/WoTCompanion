@@ -1,34 +1,76 @@
 <div class="form-group">
-    <div class="row">
-        <div class="col-md-6">
-            Spotted
+    <div class="table">
+        <div class="row">
+            <div class="col-md-3">
+                Wins Percentage
+            </div>
+            <div class="col-md-3">
+                Battles Played
+            </div>
+            <div class="col-md-3">
+                Average Experience per Battle
+            </div>
+            <div class="col-md-3">
+                Average Damage dealt during battle
+            </div>
         </div>
-        <div class="col-md-6">
-            {{personalData.spotted}}
+        <div class="row">
+            <div class="col-md-3">
+                {{(personalData.wins / personalData.battles) * 100}}
+            </div>
+            <div class="col-md-3">
+                {{personalData.battles}}
+            </div>
+            <div class="col-md-3">
+                {{personalData.xp / personalData.battles}}
+            </div>
+            <div class="col-md-3">
+                {{personalData.damage_dealt / personalData.battles}}
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            The average damage that is dealt when play breaks an enemy track
+
+    <div class="table">
+        <div class="row">
+            <div class="col-md-6">
+                Kill/Death Ratio
+            </div>
+            <div class="col-md-6">
+                Damage Dealt/Damage Received Ratio
+            </div>
         </div>
-        <div class="col-md-6">
-            {{personalData.avg_damage_assisted_track}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            Maximum XP generated in a match
-        </div>
-        <div class="col-md-6">
-            {{personalData.max_xp}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            Average Damage Blocked by Player Armor in a Match
-        </div>
-        <div class="col-md-6">
-            {{personalData.avg_damage_blocked}}
+        <div class="row">
+            <div class="col-md-6">
+                {{(personalData.frags/(personalData.battles - personalData.survived_battles))}}
+            </div>
+            <div class="col-md-6">
+                {{personalData.damage_dealt / personalData.damage_received}}
+            </div>
         </div>
     </div>
 </div>
+
+battles
+capture_points
+damage_dealt
+damage_received
+direct_hits_received
+draws
+dropped_capture_points
+explosion_hits
+explosion_hits_received
+frags
+hits
+hits_percents
+losses
+max_damage
+max_frags
+max_frags_tank_id
+max_xp_tank_id
+no_damage_direct_hits_received
+piercings
+piercings_received
+shots
+survived_battles
+wins
+xp
