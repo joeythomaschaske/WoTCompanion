@@ -45,11 +45,18 @@ function getPlayerRatings(type, accountId){
 
 function getVehicleStatistics(accountId, tankId){
     var request = baseUrl;
-    request += 'tanks/stats/?application_id=' + appId;
+    request += 'tanks/stats/?application_id=' + appId + '&in_garage=1';
     request += '&account_id=' + accountId;
     if(tankId && tankId.length > 0){
         request += '&tank_id=' + tankId;
     }
+    return httpCallout(request);
+}
+
+function getVehicleDetails(tankId){
+    var request = baseUrl;
+    request += 'encyclopedia/tankinfo/?application_id=' + appId;
+    request += '&tank_id=' + tankId;
     return httpCallout(request);
 }
 

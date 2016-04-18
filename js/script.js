@@ -44,9 +44,26 @@ scotchApp.controller('mainController', function($scope) {
 
 scotchApp.controller('aboutController', ['$scope', '$location', function($scope, $location) {
     $scope.message = 'Look! I am an about page.';
+    $scope.tanks;
     var accountId = $location.path().split('/')[2];
     console.log(JSON.parse(getPlayerPersonalData(accountId)));
     $scope.personalData = JSON.parse(getPlayerPersonalData(accountId)).data[accountId].statistics.all;
+
+    var tanksInGarage = JSON.parse(getVehicleStatistics(accountId, '')).data[[accountId]];
+    var tankIds = [];
+    for(var i = 0; i < tanksInGarage.length; ++i){
+        tankIds.push(tanksInGarage[i].tank_id);
+    }
+
+    var queriedTanksInGarage = [];
+    for(var i = 0; i < tankIds.length; ++i){
+        var tank = JSON.parse(getVehicleDetails(tankIds[i])).data[tankIds[i]];
+        console.log(tank);
+        queriedTanksInGarage.push(tank);
+    }
+    console.log('Queried Tanks');
+    console.log(queriedTanksInGarage);
+    $scope.tanks = queriedTanksInGarage;
 
 }]);
 

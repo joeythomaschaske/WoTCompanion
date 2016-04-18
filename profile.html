@@ -1,76 +1,102 @@
-<div class="form-group">
-    <div class="table">
-        <div class="row">
-            <div class="col-md-3">
-                Wins Percentage
+<ul class="nav nav-tabs visible-lg-inline-block">
+    <li class="active"><a data-toggle="tab" href="#menu1" target="_self">Stats</a></li>
+    <li><a data-toggle="tab" href="#menu2" target="_self">Tanks</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="menu1" class="tab-pane fade in active">
+        <h3>Stats</h3>
+        <div class="form-group">
+            <div class="table">
+                <div class="row">
+                    <div class="col-md-3">
+                        Wins Percentage
+                    </div>
+                    <div class="col-md-3">
+                        Battles Played
+                    </div>
+                    <div class="col-md-3">
+                        Average Experience per Battle
+                    </div>
+                    <div class="col-md-3">
+                        Average Damage dealt during battle
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        {{(personalData.wins / personalData.battles) * 100}}
+                    </div>
+                    <div class="col-md-3">
+                        {{personalData.battles}}
+                    </div>
+                    <div class="col-md-3">
+                        {{personalData.xp / personalData.battles}}
+                    </div>
+                    <div class="col-md-3">
+                        {{personalData.damage_dealt / personalData.battles}}
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                Battles Played
-            </div>
-            <div class="col-md-3">
-                Average Experience per Battle
-            </div>
-            <div class="col-md-3">
-                Average Damage dealt during battle
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                {{(personalData.wins / personalData.battles) * 100}}
-            </div>
-            <div class="col-md-3">
-                {{personalData.battles}}
-            </div>
-            <div class="col-md-3">
-                {{personalData.xp / personalData.battles}}
-            </div>
-            <div class="col-md-3">
-                {{personalData.damage_dealt / personalData.battles}}
+
+            <div class="table">
+                <div class="row">
+                    <div class="col-md-6">
+                        Kill/Death Ratio
+                    </div>
+                    <div class="col-md-6">
+                        Damage Dealt/Damage Received Ratio
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{(personalData.frags/(personalData.battles - personalData.survived_battles))}}
+                    </div>
+                    <div class="col-md-6">
+                        {{personalData.damage_dealt / personalData.damage_received}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="table">
-        <div class="row">
-            <div class="col-md-6">
-                Kill/Death Ratio
-            </div>
-            <div class="col-md-6">
-                Damage Dealt/Damage Received Ratio
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                {{(personalData.frags/(personalData.battles - personalData.survived_battles))}}
-            </div>
-            <div class="col-md-6">
-                {{personalData.damage_dealt / personalData.damage_received}}
+    <div id="menu2" class="tab-pane fade">
+        <div class="form-group">
+            <div class="row" ng-repeat="tank in tanks">
+                <div class="col-md-12 text-center">
+                    <div class="col-md-6">
+                        <img src="{{tank.image}}">
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{tank.localized_name}}</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <h3>Tanks</h3>
+        battles
+        capture_points
+        damage_dealt
+        damage_received
+        direct_hits_received
+        draws
+        dropped_capture_points
+        explosion_hits
+        explosion_hits_received
+        frags
+        hits
+        hits_percents
+        losses
+        max_damage
+        max_frags
+        max_frags_tank_id
+        max_xp_tank_id
+        no_damage_direct_hits_received
+        piercings
+        piercings_received
+        shots
+        survived_battles
+        wins
+        xp
     </div>
 </div>
 
-battles
-capture_points
-damage_dealt
-damage_received
-direct_hits_received
-draws
-dropped_capture_points
-explosion_hits
-explosion_hits_received
-frags
-hits
-hits_percents
-losses
-max_damage
-max_frags
-max_frags_tank_id
-max_xp_tank_id
-no_damage_direct_hits_received
-piercings
-piercings_received
-shots
-survived_battles
-wins
-xp
+
