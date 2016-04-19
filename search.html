@@ -1,13 +1,47 @@
-<div class="form-group text-center">
-    <form ng-submit="search()">
-        <input class="form-control" type="text" placeholder="Search" ng-model="name" ng-keypress="search($event)"/>
-    </form>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#menu1" target="_self">Search for Players</a></li>
+    <li><a data-toggle="tab" href="#menu2" target="_self">Search for Tanks</a></li>
+</ul>
+
+<div id="menu1" class="tab-pane fade in active">
+    <div class="form-group text-center">
+        <form ng-submit="search()">
+            <input class="form-control" type="text" placeholder="Search" ng-model="name" ng-keypress="search($event)"/>
+        </form>
+    </div>
+
+    <div class="form-group">
+        <div class="row" ng-repeat="player in players">
+            <div class="col-md-12 text-center">
+                <a href="#/profile/{{player.account_id}}">{{player.nickname}}</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <div class="row" ng-repeat="player in players">
-        <div class="col-md-12 text-center">
-            <a href="#/profile/{{player.account_id}}">{{player.nickname}}</a>
+<div id="menu2" class="tab-pane fade">
+    <div class="jumbotron text-center">
+        <h1>SEARCH NOT SUPPORTED YET</h1>
+    </div>
+    <div class="form-group text-center">
+        <form ng-submit="findVehicles()">
+            <input class="form-control" type="text" placeholder="Search" ng-model="tankText" ng-keypress="findVehicles($event)"/>
+        </form>
+    </div>
+
+    <div class="form-group">
+        <div class="row" ng-repeat="(key, val) in allTanks">
+            <div class="col-md-12 text-center">
+                <div class="col-md-4">
+                    <img src="{{val.images.big_icon}}">
+                </div>
+                <div class="col-md-4">
+                    <p> {{val.name}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p> {{val.description}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

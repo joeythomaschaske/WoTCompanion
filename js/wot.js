@@ -21,10 +21,13 @@ function getPlayerPersonalData(accountId){
     return httpCallout(request);
 }
 
-function getPlayerVehicles(accountId){
+function getPlayerVehicles(accountId, tankId){
     var request = baseUrl;
     request += 'account/tanks/?application_id=' + appId;
     request += '&account_id=' + accountId;
+    if(tankId && tankId.length > 0){
+        request += '&tank_id=' + tankId
+    }
     return httpCallout(request);
 }
 
@@ -68,6 +71,14 @@ function getVehicleAchievements(accountId, tankId){
         request += '&tank_id=' + tankId;
     }
     return httpCallout(request);
+}
+
+function getAllVehicles(){
+    var request = baseUrl;
+    request += 'encyclopedia/vehicles/?application_id=' + appId;
+    var additionalFields = 'name,tank_id,description,type,images.big_icon';
+    request += '&fields=' + encodeURIComponent(additionalFields);
+    return request;
 }
 
 function httpCallout(url)

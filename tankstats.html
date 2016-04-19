@@ -1,0 +1,85 @@
+<!-- tankstats.html -->
+<div class="jumbotron text-center">
+    <h1>{{tankDescription.localized_name}}</h1>
+    <img src="{{tankDescription.image}}">
+</div>
+
+<h1 class="text-center">Tank Stats</h1>
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>Average XP per Battle</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{tankStats.battle_avg_xp}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>Number of battles played</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{tankStats.battles}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>Damage Dealt/Received Ratio</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{tankStats.damage_dealt / tankStats.damage_received}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>Enemies Destroyed</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{tankStats.frags}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>Kill/Death Ratio</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{tankStats.frags / (tankStats.battles - tankStats.survived_battles)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center">Tank Achievements</h1>
+<div class="container-fluid text-center">
+    <div class="row" ng-repeat="(key, value) in tankAchievements">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>{{key}}</h3>
+                </div>
+                <div class="col-lg-6">
+                    {{value}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

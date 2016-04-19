@@ -1,6 +1,6 @@
-<ul class="nav nav-tabs visible-lg-inline-block">
-    <li class="active"><a data-toggle="tab" href="#menu1" target="_self">Stats</a></li>
-    <li><a data-toggle="tab" href="#menu2" target="_self">Tanks</a></li>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#menu1" target="_self">Player Stats</a></li>
+    <li><a data-toggle="tab" href="#menu2" target="_self">Tank Stats</a></li>
 </ul>
 
 <div class="tab-content">
@@ -61,41 +61,18 @@
     <div id="menu2" class="tab-pane fade">
         <div class="form-group">
             <div class="row" ng-repeat="tank in tanks">
-                <div class="col-md-12 text-center">
-                    <div class="col-md-6">
-                        <img src="{{tank.image}}">
+                <a href="#/tankstats/{{tank.tank_id}}/{{account}}">
+                    <div class="col-md-12 text-center">
+                        <div class="col-md-6">
+                            <img src="{{tank.image}}">
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{tank.localized_name}}</p>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <p>{{tank.localized_name}}</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
-        <h3>Tanks</h3>
-        battles
-        capture_points
-        damage_dealt
-        damage_received
-        direct_hits_received
-        draws
-        dropped_capture_points
-        explosion_hits
-        explosion_hits_received
-        frags
-        hits
-        hits_percents
-        losses
-        max_damage
-        max_frags
-        max_frags_tank_id
-        max_xp_tank_id
-        no_damage_direct_hits_received
-        piercings
-        piercings_received
-        shots
-        survived_battles
-        wins
-        xp
     </div>
 </div>
 
